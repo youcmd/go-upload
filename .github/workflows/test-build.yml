@@ -17,7 +17,7 @@ jobs:
         go-version: 1.19
 
     - name: Build
-      run: ./make.sh
+      run: chmod +x make.sh && ./make.sh
       
     - name: Test Uploade
       run: go-ul transfersh -f go-ul.exe -o test.txt
