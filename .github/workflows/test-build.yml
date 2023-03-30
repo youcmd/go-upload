@@ -17,7 +17,9 @@ jobs:
         go-version: 1.18
 
     - name: Build
-      run: chmod +x make.sh && ./make.sh
+      run: |
+        chmod +x ./make.sh
+        ./make.sh
       
     - name: Test Uploade
       run: |
