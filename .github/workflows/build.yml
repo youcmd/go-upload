@@ -21,13 +21,19 @@ jobs:
         go mod tidy
         go build -o go-ul -ldflags "-s -w"
         GOOS=windows GOARCH=amd64 go build -o go-ul.exe -ldflags "-s -w"
-        
-    - name: Upload Artifact
-      uses: softprops/action-gh-release@v1
-      with:
-        files: |
-          go-ul
-          go-ul.exe
+        echo "TAG=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
+        echo "DATE=$(date '+%Y-%m-%d')" >> $GITHUB_ENV
+    
+    - name: Releas
+      uses: ncipollo/release-action@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        name: go-ul ${{ env.DATE }}
+        tag: ${{ env.VERSION }}
+        draft: false
+        prerelease: false
+        artifacts: |
+          go-ul
+          go-ul.exe
 
