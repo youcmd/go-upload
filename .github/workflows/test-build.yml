@@ -19,11 +19,10 @@ jobs:
     - name: Build
       run: |
         go mod tidy
-        sudo go build -o go-ul -ldflags "-s -w"
+        go build -o go-ul -ldflags "-s -w"
         GOOS=windows GOARCH=amd64 go build -o go-ul.exe -ldflags "-s -w"
       
     - name: Test Uploade
       run: |
-        ls
-        sudo chmod a+rx go-ul
-        sudo go-ul transfersh -f go-ul.exe -o test.txt
+        chmod a+rx go-ul
+        go-ul transfersh -f go-ul.exe -o test.txt
