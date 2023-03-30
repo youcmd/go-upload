@@ -24,5 +24,6 @@ jobs:
       
     - name: Test Uploade
       run: |
+        ls
         sudo chmod a+rx go-ul
         sudo go-ul transfersh -f go-ul.exe -o test.txt
