@@ -30,7 +30,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         name: go-ul ${{ env.DATE }}
-        tag: ${{ env.VERSION }}
+        tag: ${{ env.TAG }}
         draft: false
         prerelease: false
         artifacts: |
