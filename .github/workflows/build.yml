@@ -1,0 +1,33 @@
+name: test-build
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.18
+
+    - name: Build
+      run: |
+        go mod tidy
+        go build -o go-ul -ldflags "-s -w"
+        GOOS=windows GOARCH=amd64 go build -o go-ul.exe -ldflags "-s -w"
+        
+    - name: Upload Artifact
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          go-ul
+          go-ul.exe
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

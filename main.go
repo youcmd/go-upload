@@ -235,7 +235,7 @@ func parseTemplate(templateText string, meta map[string]string) []byte {
 			break
 		}
 		fmt.Println("Failed to parse template. Default will be used instead.")
-		templateText = "# {{.filename}}\n{{.fileUrl}}\n"
+		templateText = "{{.fileUrl}}\n"
 		buffer.Reset()
 	}
 	return escapeTemplate(buffer.Bytes())
@@ -251,6 +251,7 @@ func writeTxt(path, filePath, fileUrl, templateText string) error {
 		"filePath": filePath,
 		"fileUrl":  fileUrl,
 	}
+	templateText = "{{.fileUrl}}\n"
 	parsed := parseTemplate(templateText, meta)
 	_, err = f.Write(parsed)
 	f.Close()
