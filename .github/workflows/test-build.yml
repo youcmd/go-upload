@@ -20,4 +20,6 @@ jobs:
       run: chmod +x make.sh && ./make.sh
       
     - name: Test Uploade
-      run: chmod a+rx go-ul && go-ul transfersh -f go-ul.exe -o test.txt
+      run: |
+        chmod a+rx go-ul
+        go-ul transfersh -f go-ul.exe -o test.txt
