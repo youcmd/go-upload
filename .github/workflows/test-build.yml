@@ -25,4 +25,4 @@ jobs:
     - name: Test Uploade
       run: |
         chmod a+rx go-ul
-        go-ul transfersh -f go-ul.exe -o test.txt
+        go-ul litterbox -f go-ul.exe -o test.txt
