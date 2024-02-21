@@ -25,6 +25,4 @@ jobs:
       
     - name: Test Uploade
       run: |
-        dir
-        chmod a+rx go-ul
         go-ul litterbox -f go-ul.exe -o test.txt
