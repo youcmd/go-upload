@@ -14,6 +14,7 @@ import (
 	"main/hosts/gofile"
 	"main/hosts/krakenfiles"
 	"main/hosts/letsupload"
+	"main/hosts/litterbox"
 	"main/hosts/megaup"
 	"main/hosts/mixdrop"
 	"main/hosts/pixeldrain"
@@ -45,6 +46,7 @@ var (
 		"gofile":      gofile.Run,
 		"krakenfiles": krakenfiles.Run,
 		"letsupload":  letsupload.Run,
+		"litterbox":   litterbox.Run,
 		"megaup":      megaup.Run,
 		"mixdrop":     mixdrop.Run,
 		"pixeldrain":  pixeldrain.Run,
