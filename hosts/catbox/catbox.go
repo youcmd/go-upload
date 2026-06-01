@@ -3,6 +3,7 @@ package catbox
 import (
 	"io"
 	"main/utils"
+	"os"
 )
 
 const (
@@ -25,8 +26,9 @@ func Run(args *utils.Args, path string) (string, error) {
 	if err != nil {
 		return "", err
 	}
+	userHash := os.Getenv("CATBOX_USERHASH")
 	formMap := map[string]string{
-		"userhash": "",
+		"userhash": userHash,
 		"reqtype":  "fileupload",
 	}
 	headers := map[string]string{
